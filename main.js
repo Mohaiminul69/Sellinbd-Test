@@ -43,14 +43,18 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
   e.preventDefault();
 });
 
-let output = "";
-fetch("https://jsonplaceholder.typicode.com/posts")
-  .then((res) => res.json())
-  .then((posts) => {
-    posts.forEach((post) => {
-      output += `<li> ${post.title} </li>`;
-    });
-    //console.log(output);
-    document.getElementById("list").innerHTML = output;
-  })
-  .catch((err) => console.log(err));
+document.getElementById("getApis").addEventListener("submit", function (e) {
+  let output = "";
+  fetch("https://jsonplaceholder.typicode.com/posts")
+    .then((res) => res.json())
+    .then((posts) => {
+      posts.forEach((post) => {
+        output += `<li> ${post.title} </li>`;
+      });
+      //console.log(output);
+      document.getElementById("list").innerHTML = output;
+    })
+    .catch((err) => console.log(err));
+
+  e.preventDefault();
+});
